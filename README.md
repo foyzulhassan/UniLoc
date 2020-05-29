@@ -19,9 +19,9 @@ How to Restore Data:
 		If you have permission issue, use sudo to run the command.     
 		
 Other useful commands:
-	To stop and remove existing docker images, run following commands:     
-		docker stop $(sudo docker ps -a -q)
-		docker rm $(sudo docker ps -a -q)
+	To stop and remove existing docker images, run following commands:       
+		docker stop $(sudo docker ps -a -q)    		
+		docker rm $(sudo docker ps -a -q)   
 		
 	To cleanup docker image data module, run following commmands:    
 		docker system prune -a
