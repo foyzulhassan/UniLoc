@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 10, 2018 1:22:14 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+   <!--For Server -->
+	<class name="com.build.analyzer.entity.Gradlebuildfixdata" table="gradlebuildfixdata" 
+		catalog="travistorrent" optimistic-lock="version">
+	<!--For Local Test -->
+	<!--<class name="com.build.analyzer.entity.Gradlebuildfixdata" table="gradlebuildfixdata"
+		catalog="travisci" optimistic-lock="version"> -->
+        <id name="row" type="long">
+            <column name="row" />
+            <generator class="assigned" />
+        </id>
+        <property name="f1row" type="long">
+            <column name="f1row" not-null="true" />
+        </property>
+        <property name="f2row" type="long">
+            <column name="f2row" not-null="true" />
+        </property>
+        <property name="ghProjectName" type="string">
+            <column name="gh_project_name" length="65535" />
+        </property>
+        <property name="gitBranch" type="string">
+            <column name="git_branch" length="65535" />
+        </property>
+        <property name="gitCommit" type="string">
+            <column name="git_commit" length="65535" />
+        </property>
+        <property name="gitFailintroCommit" type="string">
+            <column name="git_failintro_commit" length="65535" />
+        </property>
+        <property name="gitLastfailCommit" type="string">
+            <column name="git_lastfail_commit" length="65535" />
+        </property>
+        <property name="gitFixCommit" type="string">
+            <column name="git_fix_commit" length="65535" />
+        </property>
+        <property name="blLog" type="string">
+            <column name="bl_log" length="16777215" />
+        </property>
+        <property name="blLargelog" type="string">
+            <column name="bl_largelog" length="16777215" />
+        </property>
+        <property name="failChange" type="string">
+            <column name="fail_change" length="16777215" />
+        </property>
+        <property name="fixChange" type="string">
+            <column name="fix_change" length="16777215" />
+        </property>
+         <property name="failPartSim" type="string">
+            <column name="failpart_sim" length="16777215" />
+        </property>
+        <property name="reveretedStatus" type="string">
+            <column name="revereted_status" length="65535" />
+        </property>
+        <property name="failFilelist" type="string">
+            <column name="fail_filelist" length="16777215" />
+        </property>
+        <property name="passFilelist" type="string">
+            <column name="pass_filelist" length="16777215" />
+        </property>
+        <property name="f2passFilelist" type="string">
+            <column name="f2pass_filelist" length="16777215" />
+        </property>
+        <property name="changefileCount" type="int">
+            <column name="changefile_count" not-null="true" />
+        </property>
+        <property name="fixfileCount" type="java.lang.Integer">
+            <column name="fixfile_count"/>
+        </property>
+        <property name="revertfileCount" type="int">
+            <column name="revertfile_count" not-null="true" />
+        </property>
+        <property name="totalfileCount" type="java.lang.Integer">
+            <column name="totalfile_count" />
+        </property>
+        <property name="fulllogPos" type="java.lang.Integer">
+            <column name="fulllog_pos" />
+        </property>
+        <property name="fulllogMrr" type="java.lang.Double">
+            <column name="fulllog_mrr" precision="22" scale="0" />
+        </property>
+        <property name="fulllogMap" type="java.lang.Double">
+            <column name="fulllog_map" precision="22" scale="0" />
+        </property>
+        <property name="filterlogPos" type="java.lang.Integer">
+            <column name="filterlog_pos" />
+        </property>
+        <property name="filterlogMrr" type="java.lang.Double">
+            <column name="filterlog_mrr" precision="22" scale="0" />
+        </property>
+        <property name="filterlogMap" type="java.lang.Double">
+            <column name="filterlog_map" precision="22" scale="0" />
+        </property>
+        <property name="fulllogdualPos" type="java.lang.Integer">
+            <column name="fulllogdual_pos" />
+        </property>
+        <property name="fulllogdualMrr" type="java.lang.Double">
+            <column name="fulllogdual_mrr" precision="22" scale="0" />
+        </property>
+        <property name="fulllogdualMap" type="java.lang.Double">
+            <column name="fulllogdual_map" precision="22" scale="0" />
+        </property>
+        <property name="filterlogdualPos" type="java.lang.Integer">
+            <column name="filterlogdual_pos" />
+        </property>
+        <property name="filterlogdualMrr" type="java.lang.Double">
+            <column name="filterlogdual_mrr" precision="22" scale="0" />
+        </property>
+        <property name="filterlogdualMap" type="java.lang.Double">
+            <column name="filterlogdual_map" precision="22" scale="0" />
+        </property>
+        
+        <property name="failpartsimPos" type="java.lang.Integer">
+            <column name="failpartsim_pos"/>
+        </property>
+        
+        <property name="failpartsimMrr" type="java.lang.Double">
+            <column name="failpartsim_mrr" precision="22" scale="0" />
+        </property>
+        
+        <property name="failpartsimMap" type="java.lang.Double">
+            <column name="failpartsim_map" precision="22" scale="0" />
+        </property>
+        <property name="evRevertingPos" type="java.lang.Integer">
+            <column name="ev_reverting_pos" />
+        </property>
+        <property name="evRevertingMrr" type="java.lang.Double">
+            <column name="ev_reverting_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evRevertingMap" type="java.lang.Double">
+            <column name="ev_reverting_map" precision="22" scale="0" />
+        </property>
+        <property name="evRevertingNdcg" type="java.lang.Double">
+            <column name="ev_reverting_ndcg" precision="22" scale="0" />
+        </property>
+        <property name="evFulllogPos" type="java.lang.Integer">
+            <column name="ev_fulllog_pos" />
+        </property>
+        <property name="evFulllogMrr" type="java.lang.Double">
+            <column name="ev_fulllog_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evFulllogMap" type="java.lang.Double">
+            <column name="ev_fulllog_map" precision="22" scale="0" />
+        </property>
+        <property name="evFulllogastPos" type="java.lang.Integer">
+            <column name="ev_fulllogast_pos" />
+        </property>
+        <property name="evFulllogastMrr" type="java.lang.Double">
+            <column name="ev_fulllogast_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evFulllogastMap" type="java.lang.Double">
+            <column name="ev_fulllogast_map" precision="22" scale="0" />
+        </property>
+        <property name="evDiffdepboostPos" type="java.lang.Integer">
+            <column name="ev_diffdepboost_pos" />
+        </property>
+        <property name="evDiffdepboostMrr" type="java.lang.Double">
+            <column name="ev_diffdepboost_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evDiffdepboostMap" type="java.lang.Double">
+            <column name="ev_diffdepboost_map" precision="22" scale="0" />
+        </property>
+        <property name="evDiffdepboostNdcg" type="java.lang.Double">
+            <column name="ev_diffdepboost_ndcg" precision="22" scale="0" />
+        </property>
+        <property name="evDiffdepPos" type="java.lang.Integer">
+            <column name="ev_diffdep_pos" />
+        </property>
+        <property name="evDiffdepMrr" type="java.lang.Double">
+            <column name="ev_diffdep_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evDiffdepMap" type="java.lang.Double">
+            <column name="ev_diffdep_map" precision="22" scale="0" />
+        </property>
+        <property name="evDiffdepNdcg" type="java.lang.Double">
+            <column name="ev_diffdep_ndcg" precision="22" scale="0" />
+        </property>
+        <property name="evDiffboostPos" type="java.lang.Integer">
+            <column name="ev_diffboost_pos" />
+        </property>
+        <property name="evDiffboostMrr" type="java.lang.Double">
+            <column name="ev_diffboost_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evDiffboostMap" type="java.lang.Double">
+            <column name="ev_diffboost_map" precision="22" scale="0" />
+        </property>
+        <property name="evDiffboostNdcg" type="java.lang.Double">
+            <column name="ev_diffboost_ndcg" precision="22" scale="0" />
+        </property>
+        <property name="evFulllogboostPos" type="java.lang.Integer">
+            <column name="ev_fulllogboost_pos" />
+        </property>
+        <property name="evFulllogboostMrr" type="java.lang.Double">
+            <column name="ev_fulllogboost_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evFulllogboostMap" type="java.lang.Double">
+            <column name="ev_fulllogboost_map" precision="22" scale="0" />
+        </property>
+        <property name="evFulllogboostNdcg" type="java.lang.Double">
+            <column name="ev_fulllogboost_ndcg" precision="22" scale="0" />
+        </property>
+        
+        <property name="evBaselinebluirPos" type="java.lang.Integer">
+            <column name="ev_baselinebluir_pos" />
+        </property>
+        <property name="evBaselinebluirMrr" type="java.lang.Double">
+            <column name="ev_baselinebluir_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evBaselinebluirMap" type="java.lang.Double">
+            <column name="ev_baselinebluir_map" precision="22" scale="0" />
+        </property>
+        <property name="evBaselinebluirNdcg" type="java.lang.Double">
+            <column name="ev_baselinebluir_ndcg" precision="22" scale="0" />
+        </property>
+        
+         <property name="evBaselineFilePos" type="java.lang.Integer">
+            <column name="ev_baselinefile_pos" />
+        </property>
+        <property name="evBaselineFileMrr" type="java.lang.Double">
+            <column name="ev_baselinefile_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evBaselineFileMap" type="java.lang.Double">
+            <column name="ev_baselinefile_map" precision="22" scale="0" />
+        </property>
+        <property name="evBaselineFileNdcg" type="java.lang.Double">
+            <column name="ev_baselinefile_ndcg" precision="22" scale="0" />
+        </property>        
+         <property name="evDiffDepBoostAstPos" type="java.lang.Integer">
+            <column name="ev_diffdepboostast_pos" />
+        </property>
+        <property name="evDiffDepBoostAstMrr" type="java.lang.Double">
+            <column name="ev_diffdepboostast_mrr" precision="22" scale="0" />
+        </property>
+        <property name="evDiffDepBoostAstMap" type="java.lang.Double">
+            <column name="ev_diffdepboostast_map" precision="22" scale="0" />
+        </property>
+        <property name="evDiffDepBoostAstNdcg" type="java.lang.Double">
+            <column name="ev_diffdepboostast_ndcg" precision="22" scale="0" />
+        </property>
+        
+       <property name="dtFailType" type="string">
+            <column name="dt_fail_type" length="65535" />
+        </property>
+        <property name="dtDatasetType" type="string">
+            <column name="dt_dataset_type" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

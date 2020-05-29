@@ -1,0 +1,403 @@
+RQ1-Fig4:
+~~~~~~~~~~~~
+TopN Comparison:
+################
+SELECT 
+(sum(case when ev_baselinefile_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline1top1percent, 
+(sum(case when ev_baselinefile_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline1top5percent,
+(sum(case when ev_baselinefile_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline1top10percent,
+avg(ev_baselinefile_pos) AS avgbaseline1topN,
+(sum(case when ev_baselinebluir_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline2top1percent, 
+(sum(case when ev_baselinebluir_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline2top5percent,
+(sum(case when ev_baselinebluir_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline2top10percent,
+avg(ev_baselinebluir) AS avgbaseline2topN,
+(sum(case when ev_diffdepboostast_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS proposedtop1percent,
+(sum(case when ev_diffdepboostast_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS proposedtop5percent,
+(sum(case when ev_diffdepboostast_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS proposedtop10percent,
+avg(ev_diffdepboostast_pos) AS  avgproposedtopN
+FROM travistorrent.gradlebuildfixdatashort where dt_dataset_type="EVAL";
+
+
+
+RQ1-Fig5:
+~~~~~~~~~~~~
+MRR, MAP, NDCG Comparison:
+##########################
+SELECT 
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as proposedMRR,
+avg(ev_diffdepboostast_map) as proposedMAP,
+avg(ev_diffdepboostast_ndcg) as proposedNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL";
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+RQ2-TABLE 5:
+~~~~~~~~~~~~
+Change History Based:
+#####################
+SELECT 
+(sum(case when ev_reverting_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS reverttop1percent, 
+(sum(case when ev_reverting_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS reverttop5percent,
+(sum(case when ev_reverting_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS reverttop10percent,
+avg(ev_reverting_mrr) as revertMRR,
+avg(ev_reverting_map) as revertMAP,
+avg(ev_reverting_ndcg) as revertNDCG
+FROM travisci.gradlebuildfixdatashort where dt_dataset_type="EVAL";
+
+
+UniLoc:
+#######
+SELECT
+(sum(case when ev_diffdepboostast_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS proposedtop1percent, 
+(sum(case when ev_diffdepboostast_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS proposedtop5percent,
+(sum(case when ev_diffdepboostast_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS proposedtop10percent,
+avg(ev_diffdepboostast_mrr) as proposedMRR,
+avg(ev_diffdepboostast_map) as proposedMAP
+FROM travisci.gradlebuildfixdatashort where dt_dataset_type="EVAL";
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+RQ3-TABLE 6:
+~~~~~~~~~~~~
+
+Baseline1:
+##########
+SELECT 
+(sum(case when ev_baselinefile_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline1top1percent, 
+(sum(case when ev_baselinefile_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline1top5percent,
+(sum(case when ev_baselinefile_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline1top10percent,
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL";
+
+
+Baseline2:
+##########
+SELECT 
+(sum(case when ev_baselinebluir_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline2top1percent, 
+(sum(case when ev_baselinebluir_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline2top5percent,
+(sum(case when ev_baselinebluir_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline2top10percent,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL";
+
+V1:
+###
+SELECT 
+(sum(case when ev_fulllogboost_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS V1top1percent, 
+(sum(case when ev_fulllogboost_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS V1top5percent,
+(sum(case when ev_fulllogboost_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS V1top10percent,
+avg(ev_fulllogboost_mrr) as V1MRR,
+avg(ev_fulllogboost_map) as V1MAP,
+avg(ev_fulllogboost_ndcg) as V1NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL";
+
+V2:
+###
+SELECT 
+(sum(case when ev_diffboost_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS V2top1percent, 
+(sum(case when ev_diffboost_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS V2top5percent,
+(sum(case when ev_diffboost_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS V2top10percent,
+avg(ev_diffboost_mrr) as V2MRR,
+avg(ev_diffboost_map) as V2MAP,
+avg(ev_diffboost_ndcg) as V2NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL";
+
+
+V3:
+###
+SELECT 
+(sum(case when ev_diffdep_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS V3top1percent, 
+(sum(case when ev_diffdep_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS V3top5percent,
+(sum(case when ev_diffdep_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS V3top10percent,
+avg(ev_diffdep_mrr) as V3MRR,
+avg(ev_diffdep_map) as V3MAP,
+avg(ev_diffdep_ndcg) as V3NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL";
+
+UniLoc:
+#######
+SELECT 
+(sum(case when ev_diffdepboostast_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop1percent, 
+(sum(case when ev_diffdepboostast_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop5percent,
+(sum(case when ev_diffdepboostast_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop10percent,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL";
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+RQ4-TABLE 7:
+~~~~~~~~~~~~
+
+Baseline1: SourceOnly
+#####################
+
+SELECT count(*),
+(sum(case when ev_baselinefile_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline1top1percent, 
+(sum(case when ev_baselinefile_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline1top5percent,
+(sum(case when ev_baselinefile_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline1top10percent,
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist not like "%.gradle%" and f2pass_filelist like "%.java%";
+
+
+Baseline2: SourceOnly
+#####################
+
+SELECT count(*),
+(sum(case when ev_baselinebluir_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline2top1percent, 
+(sum(case when ev_baselinebluir_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline2top5percent,
+(sum(case when ev_baselinebluir_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline2top10percent,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist not like "%.gradle%" and f2pass_filelist like "%.java%";
+
+
+UniLoc: SourceOnly
+#####################
+
+SELECT count(*),
+(sum(case when ev_diffdepboostast_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop1percent, 
+(sum(case when ev_diffdepboostast_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop5percent,
+(sum(case when ev_diffdepboostast_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop10percent,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist not like "%.gradle%" and f2pass_filelist like "%.java%";
+
+
+
+Baseline1: BuildOnly
+#####################
+
+SELECT count(*),
+(sum(case when ev_baselinefile_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline1top1percent, 
+(sum(case when ev_baselinefile_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline1top5percent,
+(sum(case when ev_baselinefile_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline1top10percent,
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist not like "%.java%";
+
+
+Baseline2: BuildOnly
+#####################
+
+SELECT count(*),
+(sum(case when ev_baselinebluir_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline2top1percent, 
+(sum(case when ev_baselinebluir_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline2top5percent,
+(sum(case when ev_baselinebluir_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline2top10percent,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist not like "%.java%";
+
+
+UniLoc: BuildOnly
+#####################
+
+SELECT count(*),
+(sum(case when ev_diffdepboostast_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop1percent, 
+(sum(case when ev_diffdepboostast_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop5percent,
+(sum(case when ev_diffdepboostast_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop10percent,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist not like "%.java%";
+
+
+Baseline1: Both
+#####################
+
+SELECT count(*),
+(sum(case when ev_baselinefile_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline1top1percent, 
+(sum(case when ev_baselinefile_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline1top5percent,
+(sum(case when ev_baselinefile_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline1top10percent,
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist like "%.java%";
+
+
+Baseline2: Both
+#####################
+
+SELECT count(*),
+(sum(case when ev_baselinebluir_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS baseline2top1percent, 
+(sum(case when ev_baselinebluir_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS baseline2top5percent,
+(sum(case when ev_baselinebluir_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS baseline2top10percent,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist like "%.java%";
+
+
+UniLoc: Both
+#####################
+
+SELECT count(*),
+(sum(case when ev_diffdepboostast_pos<=1 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop1percent, 
+(sum(case when ev_diffdepboostast_pos<=5 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop5percent,
+(sum(case when ev_diffdepboostast_pos<=10 then 1 else 0 end))/COUNT(*)*100 AS UniLoctop10percent,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist like "%.java%";
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+RQ5:
+~~~~~~~~~~
+
+
+Test Fail Count:
+#################
+SELECT count(*)
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and dt_fail_type="TEST FAIL";
+
+
+Other Fail Count:
+#################
+SELECT count(*)
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and dt_fail_type="OTHER FAILURE";
+
+
+Test Failure Only Source Change:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist not like "%.gradle%" and f2pass_filelist like "%.java%" and dt_fail_type="TEST FAIL";
+
+
+Build Failure Only Source Change:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist not like "%.java%" and dt_fail_type="OTHER FAILURE";
+
+
+Test Failure Only Build Change:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist not like "%.java%" and dt_fail_type="TEST FAIL";
+
+
+Build Failure Only Build File Change:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist not like "%.java%" and dt_fail_type="OTHER FAILURE";
+
+Test Failure Both Change:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist like "%.java%" and dt_fail_type="TEST FAIL";
+
+
+Build Failure Both Change:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and f2pass_filelist like "%.gradle%" and f2pass_filelist like "%.java%" and dt_fail_type="OTHER FAILURE";
+
+
+Test Failure:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and dt_fail_type="TEST FAIL";
+
+
+Build Failure:
+###############################
+SELECT count(*),
+avg(ev_baselinefile_mrr) as baseline1MRR,
+avg(ev_baselinefile_map) as baseline1MAP,
+avg(ev_baselinefile_ndcg) as baseline1NDCG,
+avg(ev_baselinebluir_mrr) as baseline2MRR,
+avg(ev_baselinebluir_map) as baseline2MAP,
+avg(ev_baselinebluir_ndcg) as baseline2NDCG,
+avg(ev_diffdepboostast_mrr) as UniLocMRR,
+avg(ev_diffdepboostast_map) as UniLocMAP,
+avg(ev_diffdepboostast_ndcg) as UniLocNDCG
+FROM travistorrent.gradlebuildfixdata where dt_dataset_type="EVAL" and dt_fail_type="OTHER FAILURE";
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

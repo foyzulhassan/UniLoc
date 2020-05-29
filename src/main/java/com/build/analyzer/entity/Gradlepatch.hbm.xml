@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 10, 2017 3:55:54 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.build.analyzer.entity.Gradlepatch" table="gradlepatch" catalog="travistorrent" optimistic-lock="version">
+        <id name="row" type="long">
+            <column name="row" />
+            <generator class="assigned" />
+        </id>
+        <property name="gitCommit" type="string">
+            <column name="git_commit" length="65535" />
+        </property>
+        <property name="ghProjectName" type="string">
+            <column name="gh_project_name" length="65535" />
+        </property>
+        <property name="gitBranch" type="string">
+            <column name="git_branch" length="65535" />
+        </property>
+        <property name="gitCommits" type="string">
+            <column name="git_commits" length="65535" />
+        </property>
+        <property name="trStatus" type="string">
+            <column name="tr_status" length="65535" />
+        </property>
+        <property name="blLog" type="string">
+            <column name="bl_log" length="16777215" />
+        </property>
+        <property name="blCluster" type="string">
+            <column name="bl_cluster" length="65535" />
+        </property>
+        <property name="gitFixBranch" type="string">
+            <column name="git_fix_branch" length="65535" />
+        </property>
+        <property name="gitFixCommit" type="string">
+            <column name="git_fix_commit" length="65535" />
+        </property>
+        <property name="gitFixCommits" type="string">
+            <column name="git_fix_commits" length="65535" />
+        </property>
+        <property name="trFixStatus" type="string">
+            <column name="tr_fix_status" length="65535" />
+        </property>
+        <property name="patchData" type="string">
+            <column name="patch_data" length="65535" />
+        </property>
+        <property name="patchParent" type="string">
+            <column name="patch_parent" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

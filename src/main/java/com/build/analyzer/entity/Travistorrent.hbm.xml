@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 17, 2017 1:25:01 PM by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+	 <class name="edu.utsa.buildlogparser.entity.Travistorrent" table="travistorrent_8_2_2017" catalog="travistorrent" optimistic-lock="version">
+    <!--<class name="edu.utsa.buildlogparser.entity.Travistorrent" table="travistorrent_8_2_2017" catalog="travisci" optimistic-lock="version">-->
+        <id name="rowId" type="java.lang.Integer">
+            <column name="row_id" />
+            <generator class="identity" />
+        </id>
+        <property name="trBuildId" type="java.lang.Long">
+            <column name="tr_build_id" />
+        </property>
+        <property name="ghProjectName" type="string">
+            <column name="gh_project_name" length="65535" />
+        </property>
+        <property name="ghIsPr" type="java.lang.Double">
+            <column name="gh_is_pr" precision="22" scale="0" />
+        </property>
+        <property name="ghPrCreatedAt" type="timestamp">
+            <column name="gh_pr_created_at" length="19" />
+        </property>
+        <property name="ghPullReqNum" type="java.lang.Long">
+            <column name="gh_pull_req_num" />
+        </property>
+        <property name="ghLang" type="string">
+            <column name="gh_lang" length="65535" />
+        </property>
+        <property name="gitMergedWith" type="string">
+            <column name="git_merged_with" length="65535" />
+        </property>
+        <property name="gitBranch" type="string">
+            <column name="git_branch" length="65535" />
+        </property>
+        <property name="ghNumCommitsInPush" type="java.lang.Long">
+            <column name="gh_num_commits_in_push" />
+        </property>
+        <property name="ghCommitsInPush" type="string">
+            <column name="gh_commits_in_push" length="65535" />
+        </property>
+        <property name="gitPrevCommitResolutionStatus" type="string">
+            <column name="git_prev_commit_resolution_status" length="65535" />
+        </property>
+        <property name="gitPrevBuiltCommit" type="string">
+            <column name="git_prev_built_commit" length="65535" />
+        </property>
+        <property name="trPrevBuild" type="java.lang.Long">
+            <column name="tr_prev_build" />
+        </property>
+        <property name="ghFirstCommitCreatedAt" type="timestamp">
+            <column name="gh_first_commit_created_at" length="19" />
+        </property>
+        <property name="ghTeamSize" type="java.lang.Long">
+            <column name="gh_team_size" />
+        </property>
+        <property name="gitAllBuiltCommits" type="string">
+            <column name="git_all_built_commits" length="65535" />
+        </property>
+        <property name="gitNumAllBuiltCommits" type="java.lang.Long">
+            <column name="git_num_all_built_commits" />
+        </property>
+        <property name="gitTriggerCommit" type="string">
+            <column name="git_trigger_commit" length="65535" />
+        </property>
+        <property name="trVirtualMergedInto" type="string">
+            <column name="tr_virtual_merged_into" length="65535" />
+        </property>
+        <property name="trOriginalCommit" type="string">
+            <column name="tr_original_commit" length="65535" />
+        </property>
+        <property name="ghNumIssueComments" type="java.lang.Long">
+            <column name="gh_num_issue_comments" />
+        </property>
+        <property name="ghNumCommitComments" type="java.lang.Long">
+            <column name="gh_num_commit_comments" />
+        </property>
+        <property name="ghNumPrComments" type="java.lang.Long">
+            <column name="gh_num_pr_comments" />
+        </property>
+        <property name="gitDiffSrcChurn" type="java.lang.Long">
+            <column name="git_diff_src_churn" />
+        </property>
+        <property name="gitDiffTestChurn" type="java.lang.Long">
+            <column name="git_diff_test_churn" />
+        </property>
+        <property name="ghDiffFilesAdded" type="java.lang.Long">
+            <column name="gh_diff_files_added" />
+        </property>
+        <property name="ghDiffFilesDeleted" type="java.lang.Long">
+            <column name="gh_diff_files_deleted" />
+        </property>
+        <property name="ghDiffFilesModified" type="java.lang.Long">
+            <column name="gh_diff_files_modified" />
+        </property>
+        <property name="ghDiffTestsAdded" type="java.lang.Long">
+            <column name="gh_diff_tests_added" />
+        </property>
+        <property name="ghDiffTestsDeleted" type="java.lang.Long">
+            <column name="gh_diff_tests_deleted" />
+        </property>
+        <property name="ghDiffSrcFiles" type="java.lang.Long">
+            <column name="gh_diff_src_files" />
+        </property>
+        <property name="ghDiffDocFiles" type="java.lang.Long">
+            <column name="gh_diff_doc_files" />
+        </property>
+        <property name="ghDiffOtherFiles" type="java.lang.Long">
+            <column name="gh_diff_other_files" />
+        </property>
+        <property name="ghNumCommitsOnFilesTouched" type="java.lang.Long">
+            <column name="gh_num_commits_on_files_touched" />
+        </property>
+        <property name="ghSloc" type="java.lang.Long">
+            <column name="gh_sloc" />
+        </property>
+        <property name="ghTestLinesPerKloc" type="java.lang.Double">
+            <column name="gh_test_lines_per_kloc" precision="22" scale="0" />
+        </property>
+        <property name="ghTestCasesPerKloc" type="java.lang.Double">
+            <column name="gh_test_cases_per_kloc" precision="22" scale="0" />
+        </property>
+        <property name="ghAssertsCasesPerKloc" type="java.lang.Double">
+            <column name="gh_asserts_cases_per_kloc" precision="22" scale="0" />
+        </property>
+        <property name="ghByCoreTeamMember" type="java.lang.Double">
+            <column name="gh_by_core_team_member" precision="22" scale="0" />
+        </property>
+        <property name="ghDescriptionComplexity" type="java.lang.Long">
+            <column name="gh_description_complexity" />
+        </property>
+        <property name="ghPushedAt" type="timestamp">
+            <column name="gh_pushed_at" length="19" />
+        </property>
+        <property name="ghBuildStartedAt" type="timestamp">
+            <column name="gh_build_started_at" length="19" />
+        </property>
+        <property name="trStatus" type="string">
+            <column name="tr_status" length="65535" />
+        </property>
+        <property name="trDuration" type="java.lang.Long">
+            <column name="tr_duration" />
+        </property>
+        <property name="trJobs" type="string">
+            <column name="tr_jobs" length="65535" />
+        </property>
+        <property name="trBuildNumber" type="java.lang.Long">
+            <column name="tr_build_number" />
+        </property>
+        <property name="trJobId" type="java.lang.Long">
+            <column name="tr_job_id" />
+        </property>
+        <property name="trLogLan" type="string">
+            <column name="tr_log_lan" length="65535" />
+        </property>
+        <property name="trLogStatus" type="string">
+            <column name="tr_log_status" length="65535" />
+        </property>
+        <property name="trLogSetupTime" type="java.lang.Long">
+            <column name="tr_log_setup_time" />
+        </property>
+        <property name="trLogAnalyzer" type="string">
+            <column name="tr_log_analyzer" length="65535" />
+        </property>
+        <property name="trLogFrameworks" type="string">
+            <column name="tr_log_frameworks" length="65535" />
+        </property>
+        <property name="trLogBoolTestsRan" type="java.lang.Double">
+            <column name="tr_log_bool_tests_ran" precision="22" scale="0" />
+        </property>
+        <property name="trLogBoolTestsFailed" type="java.lang.Double">
+            <column name="tr_log_bool_tests_failed" precision="22" scale="0" />
+        </property>
+        <property name="trLogNumTestsOk" type="string">
+            <column name="tr_log_num_tests_ok" length="65535" />
+        </property>
+        <property name="trLogNumTestsFailed" type="string">
+            <column name="tr_log_num_tests_failed" length="65535" />
+        </property>
+        <property name="trLogNumTestsRun" type="string">
+            <column name="tr_log_num_tests_run" length="65535" />
+        </property>
+        <property name="trLogNumTestsSkipped" type="string">
+            <column name="tr_log_num_tests_skipped" length="65535" />
+        </property>
+        <property name="trLogTestsFailed" type="string">
+            <column name="tr_log_tests_failed" length="65535" />
+        </property>
+        <property name="trLogTestduration" type="java.lang.Double">
+            <column name="tr_log_testduration" precision="22" scale="0" />
+        </property>
+        <property name="trLogBuildduration" type="java.lang.Double">
+            <column name="tr_log_buildduration" precision="22" scale="0" />
+        </property>
+        <property name="buildSuccessful" type="java.lang.Byte">
+            <column name="build_successful" />
+        </property>
+        <property name="blLog" type="string">
+            <column name="bl_log" length="16777215" />
+        </property>
+        <property name="blCluster" type="string">
+            <column name="bl_cluster" length="65535" />
+        </property>
+        <property name="cmtImportchangecount" type="java.lang.Integer">
+            <column name="cmt_importchangecount" />
+        </property>
+        <property name="cmtClasschangecount" type="java.lang.Integer">
+            <column name="cmt_classchangecount" />
+        </property>
+        <property name="cmtMethodchangecount" type="java.lang.Integer">
+            <column name="cmt_methodchangecount" />
+        </property>
+        <property name="cmtFieldchangecount" type="java.lang.Integer">
+            <column name="cmt_fieldchangecount" />
+        </property>
+        <property name="cmtMethodbodychangecount" type="java.lang.Integer">
+            <column name="cmt_methodbodychangecount" />
+        </property>
+        <property name="cmtBuildfilechangecount" type="java.lang.Integer">
+            <column name="cmt_buildfilechangecount" />
+        </property>
+    </class>
+</hibernate-mapping>
