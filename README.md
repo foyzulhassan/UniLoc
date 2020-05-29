@@ -1,4 +1,4 @@
-### UniLoc: Unified Fault Localization of Continuous Integration Failures
+## UniLoc: Unified Fault Localization of Continuous Integration Failures
 UniLoc, a unified technique to localize faults in both source code and build scripts given CI failures.
 
 ## Restore Data
