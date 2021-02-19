@@ -1,0 +1,46 @@
+package utils;
+
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+public class ChangeLocator {
+	public static HashMap<String,String> shortChangeMap = null;
+	
+	public static HashMap<String,String> getShortChangeMap() {
+		if (shortChangeMap == null) {
+			shortChangeMap = readShortChangeMap();
+		} 
+		return shortChangeMap;
+	}
+	
+	public static HashMap<String,Long> getChangeTime() throws ParseException {
+		HashMap<String,Long> changeTime = new HashMap<String,Long>();
+		List<String> lines = FileToLines.fileToLines(main.Main.settings.get("workingLoc") + File.separator + "logOneline.txt");
+		for (String line : lines) {
+			String[] split = line.split("\t");
+			
+			Date date = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy Z").parse(split[2]);
+			changeTime.put(split[0], date.getTime());
+		}
+		return changeTime;
+	}
+	
+	public static HashMap<String,String> readShortChangeMap() {
+		HashMap<String,String> changeMap = new HashMap<String,String>();
+		List<String> lines = FileToLines.fileToLines(main.Main.settings.get("workingLoc") + File.separator + "logOneline.txt");
+		for (String line : lines) {
+			if(line.contains("9dc583f5"))
+			{
+				System.out.println("here");
+			}
+			String[] split = line.split("\t");
+			String test=split[0].substring(0, 7);
+			changeMap.put(split[0].substring(0, 7), split[0]);
+		}
+		return changeMap;
+	}
+}
